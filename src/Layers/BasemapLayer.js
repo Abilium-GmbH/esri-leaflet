@@ -7,7 +7,8 @@ import {
   _updateMapAttribution
 } from '../Util';
 
-var tileProtocol = (window.location.protocol !== 'https:') ? 'http:' : 'https:';
+// the protocol can be set by using window.protocol = 'https:' if it is required to override it! (e.g. for Ionic)
+var tileProtocol = (window.protocol ? window.protocol : (window.location.protocol !== 'https:') ? 'http:' : 'https:');
 
 export var BasemapLayer = TileLayer.extend({
   statics: {
